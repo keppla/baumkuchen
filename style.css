@@ -1,0 +1,59 @@
+html {
+    font-family: Jost, Arial, Helvetica, sans-serif;
+    background-color: darkslategray;
+}
+
+svg text {
+    font-family: Jost, Arial, Helvetica, sans-serif;
+}
+
+svg .edge path,
+svg .edge polygon {
+    stroke: #333333;
+    fill: #333333;
+}
+
+svg .node {
+    cursor: pointer;
+}
+
+svg .node.ingredient.active polygon {
+    fill: #999999
+}
+
+svg .node.ingredient.active text {
+    fill: black;
+}
+
+svg .node.ingredient polygon {
+    stroke: #999999;
+    fill: transparent;
+}
+
+svg .node.ingredient text {
+    fill: #999999;
+}
+
+
+
+
+
+svg .node.activity.active path {
+    fill: #333333
+}
+
+svg .node.activity.active text {
+    fill: black;
+}
+
+svg .node.activity path {
+    fill: transparent;
+    stroke: #333333
+}
+
+svg .node.activity text {
+    fill: #333333;
+}
+
+
+
