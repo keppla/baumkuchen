@@ -1,0 +1,55 @@
+ingredients:
+    - Zwiebel
+    - Butter
+    - Cherrytomaten
+    - Vodka 
+    - Tomatenmark
+    - Sahne
+    - Wasser
+    - Salz 
+    - Nudeln
+    - Nudelwasser
+    - "Gekochte Nudeln"
+    - Sauce
+
+activities:
+    - Würfeln
+    - Halbieren
+    - 
+      id: Braten1
+      label: Braten
+    - 
+      id: Braten2
+      label: Braten
+
+    - Ablöschen
+    - Aufkochen
+    - Reduzieren
+    - Strecken
+
+    - 
+      id: Kochen1
+      label: Kochen
+    -
+      id: Kochen2
+      label: Kochen
+
+edges:
+    - [Zwiebel, Würfeln, Braten1, Braten2]
+    - [Butter, Braten1]
+
+    - [Cherrytomaten, Halbieren, Braten2 ]
+    - [Tomatenmark, Braten2]
+
+    - [Braten2, Ablöschen]
+    - [Vodka, Ablöschen, Aufkochen, Reduzieren, Strecken]
+
+    - [Sahne, Aufkochen]
+
+    - [Wasser, Kochen1, Kochen2]
+    - [Salz, Kochen1]
+
+    - [Nudeln, Kochen2]
+
+    - [Kochen2, Nudelwasser, Strecken, Sauce]
+    - [Kochen2, "Gekochte Nudeln"]

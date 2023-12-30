@@ -1,0 +1,71 @@
+ingredients:
+    - Olivenöl
+    - Zwiebel
+    - Salcicca
+    - "Passierte Tomaten"
+    - Parmesan
+    - Ei
+    - Eigelb
+
+    - Wasser
+    - Salz 
+    - Nudeln
+    - Nudelwasser
+    - "Gekochte Nudeln"
+
+
+activities:
+    - Würfeln
+    - 
+      id: Braten1
+      label: Braten
+    - 
+      id: Braten2
+      label: Braten
+    - Reduzieren
+    - Strecken
+
+    - Reiben
+    - 
+      id: CarbonaraMischen
+      label: Mischen
+
+    - Trennen
+
+    - 
+      id: Kochen1
+      label: Kochen
+    -
+      id: Kochen2
+      label: Kochen
+
+    - 
+      id: NudelEinmischen
+      label: Mischen
+    - 
+      id: Mischen3
+      label: Mischen
+
+
+edges:
+    - [Olivenöl, Braten1]
+    - [Zwiebel, Würfeln, Braten1, Braten2]
+    - [Salcicca, Braten2, Reduzieren]
+    - ["Passierte Tomaten", Reduzieren, Strecken]
+    - [Parmesan, Reiben, CarbonaraMischen]
+    - [Ei, Trennen, Eigelb, CarbonaraMischen, Mischen3]
+
+
+    - [Wasser, Kochen1, Kochen2]
+    - [Salz, Kochen1]
+
+    - [Nudeln, Kochen2]
+
+    - [Kochen2, Nudelwasser]
+    - [Kochen2, "Gekochte Nudeln", NudelEinmischen]
+
+    - [Nudelwasser, CarbonaraMischen]
+    - [Nudelwasser, Strecken]
+
+
+    - [Strecken, NudelEinmischen, Mischen3]
