@@ -86,6 +86,8 @@ tpl_html = jinja2.Template("""
 
 
 if __name__ == '__main__':
+    print("xxx", sys.argv)
+
     with open(sys.argv[1]) as fp:
         data = yaml.load(fp, Loader=yaml.Loader)
 
