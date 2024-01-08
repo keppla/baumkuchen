@@ -17,7 +17,7 @@ project_root = Path(__file__).parent.resolve()
 def command_dependencies():
     """ installs the dependencies via virtualenv and pip.
     """
-    if not (project_root / "venv").exists():
+    if (project_root / "venv").exists():
         return
 
     shell(["virtualenv", "venv"])
