@@ -1,0 +1,41 @@
+name: Quacamole
+ingredients:
+    - Schmand
+    - Cherrytomaten
+    - Avocado
+    - 
+      id: zwiebel
+      label: Rote Zwiebel
+
+    - Knoblauch
+    - Zitrone
+    - Chilli
+
+
+
+activities:
+  - 
+    id: tomaten_würfeln
+    label: Würfeln
+  -
+    id: zwiebel_würfeln
+    label: Würfeln
+
+  - zerkleinern
+  - auspressen
+  - 
+    id: knoblauch_hacken
+    label: hacken
+  - 
+    id: chilli_hacken
+    label: hacken
+  - mischen
+
+edges:
+  - [Schmand, mischen]
+  - [Cherrytomaten, tomaten_würfeln, mischen]
+  - [zwiebel, zwiebel_würfeln, mischen]
+  - [Zitrone, auspressen, mischen]
+  - [Avocado, zerkleinern, mischen]
+  - [Knoblauch, knoblauch_hacken, mischen]
+  - [Chilli, chilli_hacken, mischen]
