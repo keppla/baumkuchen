@@ -16,10 +16,10 @@ ingredients:
 activities:
   - 
     id: tomaten_würfeln
-    label: Würfeln
+    label: fein würfeln
   -
     id: zwiebel_würfeln
-    label: Würfeln
+    label: fein würfeln
 
   - zerkleinern
   - auspressen
@@ -28,7 +28,7 @@ activities:
     label: hacken
   - 
     id: chilli_hacken
-    label: hacken
+    label: fein hacken
   - mischen
 
 edges:
