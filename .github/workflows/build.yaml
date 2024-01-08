@@ -12,7 +12,7 @@ jobs:
           python-version: '3.10'
       - run: "sudo apt-get update && sudo apt-get install -y graphviz"
       - run: "sudo pip install virtualenv"
-      - run: "python dev.py"
+      - run: "python dev.py build"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'build'
