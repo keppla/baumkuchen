@@ -4,6 +4,11 @@ import sys
 import jinja2
 import subprocess
 import io
+import os
+import shutil
+
+from pathlib import Path
+
 
 tpl_dot = jinja2.Template("""
 
@@ -27,7 +32,28 @@ digraph recipe {
 """)
 
 
-tpl_html = jinja2.Template("""
+tpl_index = jinja2.Template("""
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+            @import url(style.css);
+        </style>
+    </head>
+    <body>
+        <h1>Recipies</h1>
+        <ul>
+            {% for recipe in recipies %}
+                <li><a href="{{ recipe }}">{{ recipe }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+""")
+
+tpl_recipie = jinja2.Template("""
 
 <!DOCTYPE html>
 <html>
@@ -85,10 +111,8 @@ tpl_html = jinja2.Template("""
 """)
 
 
-if __name__ == '__main__':
-    print("xxx", sys.argv)
-
-    with open(sys.argv[1]) as fp:
+def render_recipe(filename, output):
+    with open(filename) as fp:
         data = yaml.load(fp, Loader=yaml.Loader)
 
     def normalize(act):
@@ -116,8 +140,32 @@ if __name__ == '__main__':
 
     dependencies = {key: [r for l, r in lst] for key, lst in groupby(edges, key=lambda a: a[0])}
 
+    with open(output, 'w') as fp:
+        fp.write(    
+            tpl_recipie.render(
+                svg=p.stdout.decode('utf-8'),
+                dependencies=dependencies))
 
-    sys.stdout.write(    
-        tpl_html.render(
-            svg=p.stdout.decode('utf-8'),
-            dependencies=dependencies))
+
+def render_index(target, files):
+    with open(target, "w") as fp:
+        fp.write(tpl_index.render(recipies=files))
+
+
+if __name__ == '__main__':
+    builddir = Path("build")
+    builddir.mkdir(parents=True, exist_ok=True)
+
+    shutil.copyfile("style.css", builddir / "style.css")
+
+    files = {source: builddir / source.with_suffix(".html").name
+                for source
+                in Path("recipies").glob("*.yml")}
+
+    render_index(
+        builddir / "index.html",
+        [Path(file).name for file in files.values()])
+
+    for source, target in files.items():
+        render_recipe(source, target)
+
