@@ -1,0 +1,32 @@
+name: Süßkartoffelsalat
+ingredients:
+    Süsskartoffel:
+    Möhren:
+    Milch:
+    Senf:
+    Wasser:
+    Salat:
+    Macadamianüsse:
+
+activities:
+  kartoffel_würfeln:
+    label: grob würfeln
+  möhren_würfeln:
+    label: grob würfeln
+  schneiden:
+  kochen:
+  mixen:
+  mischen:
+
+edges:
+  - [Süsskartoffel, kartoffel_würfeln, kochen]
+  - [Möhren, möhren_würfeln, kochen]
+  - [Wasser, kochen]
+
+  - [Macadamianüsse, mixen]
+  - [Senf, mixen]
+  - [Milch, mixen]
+  
+  - [kochen, mischen]
+  - [mixen, mischen]
+  - [Salat, schneiden, mischen]

@@ -1,0 +1,30 @@
+name: Amaretti
+
+ingredients:
+  Ei:
+    amount: 5
+  Eiweis:
+  Zucker:
+    amount: 300g
+  Mandelmehl:
+    amount: 500g
+  Puderzucker:
+
+activities:
+  trennen:
+  schlagen:
+  mischen:
+  ruhen:
+    label: ruhen lassen
+    comment: 1h
+  formen:
+  bestreuen:
+  backen:
+    comment: 180°C, 15min
+  
+edges:
+  - [Ei, trennen, Eiweis, schlagen, mischen]
+  - [Zucker, mischen]
+  - [Mandelmehl, mischen]
+  - [mischen, ruhen, formen, bestreuen, backen]
+  - [Puderzucker, bestreuen]

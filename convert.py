@@ -124,9 +124,22 @@ def render_recipe(filename, output):
         else:
             return act
 
+    def normalize_ingredient(key, value):
+        if not isinstance(value, dict):
+            return {
+                "id": key,
+                "label": key,
+            }
+        else:
+            return {
+                **value,
+                "id": key,
+                "label": value.get('label', key),
+            }
+
     dot = tpl_dot.render(
-        ingredients=[normalize(ing) for ing in data['ingredients']],
-        activities=[normalize(act) for act in data['activities']],
+        ingredients=[normalize_ingredient(key, value) for key, value in data['ingredients'].items()],
+        activities=[normalize_ingredient(key, value) for key, value in data['activities'].items()],
         edges=data['edges'])
 
     p = subprocess.run(['dot', '-Tsvg'],

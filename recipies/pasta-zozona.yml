@@ -1,72 +1,60 @@
 name: Pasta Zozona
 ingredients:
-    - Olivenöl
-    - Zwiebel
-    - Salcicca
-    - "Passierte Tomaten"
-    - Parmesan
-    - Ei
-    - Eigelb
-
-    - Wasser
-    - Salz 
-    - Nudeln
-    - Nudelwasser
-    - "Gekochte Nudeln"
+  Olivenöl:
+  Zwiebel:
+  Salcicca:
+  "Passierte Tomaten":
+  Parmesan:
+  Ei:
+  Eigelb:
+  Wasser:
+  Salz :
+  Nudeln:
+  Nudelwasser:
+  "Gekochte Nudeln":
 
 
 activities:
-    - Würfeln
-    - 
-      id: Braten1
-      label: Braten
-    - 
-      id: Braten2
-      label: Braten
-    - Reduzieren
-    - Strecken
+  würfeln:
+  braten1:
+      label: braten
+  braten2:
+      label: braten
+  reduzieren:
+  strecken:
+  reiben:
+  carbonara_mischen:
+    label: mischen
+  Trennen:
+  kochen1:
+      label: kochen
+  kochen2:
+      label: kochen
+  nudeln_einmischen:
+      label: mischen
 
-    - Reiben
-    - 
-      id: CarbonaraMischen
-      label: Mischen
-
-    - Trennen
-
-    - 
-      id: Kochen1
-      label: Kochen
-    -
-      id: Kochen2
-      label: Kochen
-
-    - 
-      id: NudelEinmischen
-      label: Mischen
-    - 
-      id: Mischen3
-      label: Mischen
+  mischen3:
+      label: mischen
 
 
 edges:
-    - [Olivenöl, Braten1]
-    - [Zwiebel, Würfeln, Braten1, Braten2]
-    - [Salcicca, Braten2, Reduzieren]
-    - ["Passierte Tomaten", Reduzieren, Strecken]
-    - [Parmesan, Reiben, CarbonaraMischen]
-    - [Ei, Trennen, Eigelb, CarbonaraMischen, Mischen3]
+    - [Olivenöl, braten1]
+    - [Zwiebel, würfeln, braten1, braten2]
+    - [Salcicca, braten2, reduzieren]
+    - ["Passierte Tomaten", reduzieren, strecken]
+    - [Parmesan, reiben, carbonara_mischen]
+    - [Ei, Trennen, Eigelb, carbonara_mischen, mischen3]
+
+    - [Wasser, kochen1, kochen2]
+    - [Salz, kochen1]
+
+    - [Nudeln, kochen2]
+
+    - [kochen2, Nudelwasser]
+    - [kochen2, "Gekochte Nudeln", nudeln_einmischen]
+
+    - [Nudelwasser, carbonara_mischen]
+    - [Nudelwasser, strecken]
 
 
-    - [Wasser, Kochen1, Kochen2]
-    - [Salz, Kochen1]
-
-    - [Nudeln, Kochen2]
-
-    - [Kochen2, Nudelwasser]
-    - [Kochen2, "Gekochte Nudeln", NudelEinmischen]
-
-    - [Nudelwasser, CarbonaraMischen]
-    - [Nudelwasser, Strecken]
-
-
-    - [Strecken, NudelEinmischen, Mischen3]
+    - [strecken, nudeln_einmischen, mischen3]

@@ -1,0 +1,55 @@
+name: Gulasch
+ingredients:
+  Rindergulasch:
+    amount: 500g
+  Zwiebel:
+    amount: 2
+  Möhren:
+    amount: 2
+  Sellerie:
+    amount: 100g
+  Pastinake:
+    amount: 1
+  Rotwein:
+    amount: 200ml
+  Tomatenmark:
+    amount: 1 EL
+  Brühe:
+    amount: 1L
+  Lorberblätter:
+    amount: 2
+  Nelken:
+    amount: 2
+  Zimt:
+    amount: 1 TL
+
+activities:
+  würfeln:
+  grob_schneiden:
+    label: grob schneiden
+  braten:
+  mischen_tomatenmark:
+    label: mischen
+  anbraten:
+  ablöschen_wein:
+    label: ablöschen
+  reduzieren:
+  ablöschen_brühe:
+    label: ablöschen
+  würzen:
+  simmern:
+
+
+edges:
+  - [Möhren, grob_schneiden]
+  - [Sellerie, grob_schneiden]
+  - [Pastinake, grob_schneiden, braten]
+  - [Zwiebel, würfeln, braten]
+  - [Rindergulasch, braten, mischen_tomatenmark]
+  - [Tomatenmark, mischen_tomatenmark, anbraten, ablöschen_wein]
+  - [Rotwein, ablöschen_wein, reduzieren, ablöschen_brühe]
+  - [Brühe, ablöschen_brühe, würzen, simmern]
+  - [Lorberblätter, würzen]
+  - [Nelken, würzen]
+  - [Zimt, würzen]
+  

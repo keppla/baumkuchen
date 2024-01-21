@@ -1,56 +1,51 @@
 name: Pasta a la Vodka
+
 ingredients:
-    - Zwiebel
-    - Butter
-    - Cherrytomaten
-    - Vodka 
-    - Tomatenmark
-    - Sahne
-    - Wasser
-    - Salz 
-    - Nudeln
-    - Nudelwasser
-    - "Gekochte Nudeln"
-    - Sauce
+  Zwiebel:
+  Butter:
+  Cherrytomaten:
+  Vodka:
+  Tomatenmark:
+  Sahne:
+  Wasser:
+  Salz:
+  Nudeln:
+  Nudelwasser:
+  Gekochte Nudeln:
+  Sauce:
 
 activities:
-    - Würfeln
-    - Halbieren
-    - 
-      id: Braten1
-      label: Braten
-    - 
-      id: Braten2
-      label: Braten
-
-    - Ablöschen
-    - Aufkochen
-    - Reduzieren
-    - Strecken
-
-    - 
-      id: Kochen1
-      label: Kochen
-    -
-      id: Kochen2
-      label: Kochen
+  würfeln:
+  halbieren:
+  braten1:
+    label: braten
+  braten2:
+    label: braten
+  ablöschen:
+  aufkochen:
+  reduzieren:
+  strecken:
+  kochen1:
+    label: kochen
+  kochen2:
+    label: kochen
 
 edges:
-    - [Zwiebel, Würfeln, Braten1, Braten2]
-    - [Butter, Braten1]
+  - [Zwiebel, würfeln, braten1, braten2]
+  - [Butter, braten1]
 
-    - [Cherrytomaten, Halbieren, Braten2 ]
-    - [Tomatenmark, Braten2]
+  - [Cherrytomaten, halbieren, braten2]
+  - [Tomatenmark, braten2]
 
-    - [Braten2, Ablöschen]
-    - [Vodka, Ablöschen, Aufkochen, Reduzieren, Strecken]
+  - [braten2, ablöschen]
+  - [Vodka, ablöschen, aufkochen, reduzieren, strecken]
 
-    - [Sahne, Aufkochen]
+  - [Sahne, aufkochen]
 
-    - [Wasser, Kochen1, Kochen2]
-    - [Salz, Kochen1]
+  - [Wasser, kochen1, kochen2]
+  - [Salz, kochen1]
 
-    - [Nudeln, Kochen2]
+  - [Nudeln, kochen2]
 
-    - [Kochen2, Nudelwasser, Strecken, Sauce]
-    - [Kochen2, "Gekochte Nudeln"]
+  - [kochen2, Nudelwasser, strecken, Sauce]
+  - [kochen2, "Gekochte Nudeln"]
