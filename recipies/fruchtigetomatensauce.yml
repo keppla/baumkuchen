@@ -1,0 +1,26 @@
+name: Fruchtige Tomatensauce
+ingredients:
+  Schweinefilet:
+    amount: 200g
+  Sahne:
+    amount: 250g
+  Edamer:
+    amount: 100g
+  Zwiebel:
+    amount: 1
+  Knoblauchzehe:
+    amount: 2
+  Rotwein:
+    amount: 200ml
+  Tomatenmark:
+    amount: 3 EL
+
+activities:
+  würfeln:
+  anschwitzen:
+  schneiden:
+    label: in Streifen schneiden
+
+edges: []
+
+

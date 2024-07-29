@@ -1,0 +1,39 @@
+name: Süsses Gulasch
+ingredients:
+  Gulasch:
+    label: Gemischtes Gulasch
+    amount: 500g
+  Speck:
+    amount: 100g
+  Zwiebel:
+    amount: 3
+  Tomaten:
+    amount: 1 Dose
+  Brühe:
+    amount: 1L
+  Johannisbeergelee:
+    amount: 3 EL
+  Honig:
+    amount: 3 El
+  Lorberblätter:
+    amount: 2
+
+activities:
+  anbraten:
+  würfeln:
+      label: grob würfeln
+  anschwitzen:
+  mischen_zwiebeln:
+      label: mischen
+  mischen_gulasch:
+      label: mischen
+  ablöschen:
+
+edges:
+  - [Gulasch, anbraten, mischen_gulasch]
+  - [Speck, anbraten]
+  - [Zwiebel, würfeln, anschwitzen, mischen_zwiebeln, mischen_gulasch]
+  - [Honig, mischen_zwiebeln]
+  - [Johannisbeergelee, mischen_zwiebeln]
+  - [Tomaten, mischen_gulasch]
+  #- [Brühe, ablöschen]
