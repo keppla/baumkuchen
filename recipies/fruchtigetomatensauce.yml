@@ -16,9 +16,30 @@ ingredients:
     amount: 3 EL
 
 activities:
-  würfeln:
+  würfeln_zwiebel:
+    label: würfeln
+  würfeln_edamer:
+    label: würfeln
+
   anschwitzen:
+  anbraten:
   schneiden:
     label: in Streifen schneiden
 
-edges: []
+  mischen:
+  mischen2:
+    label: mischen
+
+  hacken:
+    label: fein hacken
+
+edges:
+  - [Schweinefilet, schneiden, anbraten, mischen2]
+  - [Zwiebel, würfeln_zwiebel, anschwitzen, mischen2]
+  - [Knoblauchzehe, hacken, anschwitzen]
+
+  - [Edamer, würfeln_edamer, mischen2]
+
+  - [Rotwein, mischen]
+  - [Sahne, mischen]
+  - [Tomatenmark, mischen, mischen2]
