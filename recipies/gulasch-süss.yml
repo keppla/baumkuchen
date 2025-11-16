@@ -17,6 +17,7 @@ ingredients:
     amount: 3 El
   Lorberblätter:
     amount: 2
+  Pfeffer:
 
 activities:
   anbraten:
@@ -29,11 +30,18 @@ activities:
       label: mischen
   ablöschen:
 
+  kochen:
+
 edges:
   - [Gulasch, anbraten, mischen_gulasch]
   - [Speck, anbraten]
   - [Zwiebel, würfeln, anschwitzen, mischen_zwiebeln, mischen_gulasch]
   - [Honig, mischen_zwiebeln]
   - [Johannisbeergelee, mischen_zwiebeln]
-  - [Tomaten, mischen_gulasch]
-  #- [Brühe, ablöschen]
+  - [Tomaten, mischen_gulasch, ablöschen]
+  - [Brühe, ablöschen, kochen]
+
+  - [Lorberblätter, kochen]
+  - [Nelken, kochen]
+  - [Zimt, kochen]
+  - [Pfeffer, kochen]

@@ -1,10 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+
 html {
-    font-family: Jost, Arial, Helvetica, sans-serif;
-    background-color: darkslategray;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+
+    /* font-family: Jost, Arial, Helvetica, sans-serif; */
+    background-color: #ddcdb4;
 }
 
+
+
+body.Index {
+
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover::before,
+    a:hover::after {
+        content: "";
+        display: inline-block;
+        background-size: 25px 8px;
+
+        background-image: url('assets/deco-arrow.svg');
+        width: 25px;
+        height: 8px;
+        content:"";
+    }
+
+    a:hover::before {
+        transform: scaleX(-1);
+        margin-right: 10px;
+    }
+
+    a:hover::after {
+        margin-left: 10px;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+}
+
+
 svg text {
-    font-family: Jost, Arial, Helvetica, sans-serif;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+
+    /* font-family: Jost, Arial, Helvetica, sans-serif; */
 }
 
 svg .edge path {
@@ -20,30 +70,44 @@ svg .node {
     cursor: pointer;
 }
 
-svg .node polygon,
+svg .node text {
+    fill: rgba(0, 0, 0, 0.5);
+}
+
+svg .node.todo text {
+    fill: black;
+}
+
+svg .node.done text {
+    text-decoration: line-through;
+}
+
+
+
+/* svg .node polygon,
 svg .node path {
-    stroke: #333333;
+    stroke: rgba(0, 0, 0, 0.5);
     fill: transparent;
 }
 
 svg .node text {
-    fill: #333333;
+    stroke: rgba(0, 0, 0, 0.5);
 }
 
 svg .node.todo path,
 svg .node.todo polygon {
-    stroke: #999999
+    stroke: black;
 }
 
 svg .node.todo text {
-    fill: #999999;
+    fill: black;
 }
 
 svg .node.done path,
 svg .node.done polygon {
-    fill: #333333
+    fill: rgba(0, 0, 0, 0.3);
 }
 
 svg .node.done text {
-    fill: black;
-}
+    fill: rgba(0, 0, 0, 0.3);
+} */

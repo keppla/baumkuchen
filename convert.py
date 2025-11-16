@@ -14,7 +14,7 @@ tpl_dot = jinja2.Template("""
 
 digraph recipe {
 
-    bgcolor=transparent    
+    bgcolor=transparent
     node [color=transparent]
 
     {% for ing in ingredients %}
@@ -42,11 +42,11 @@ tpl_index = jinja2.Template("""
             @import url(style.css);
         </style>
     </head>
-    <body>
+    <body class="Index">
         <h1>Recipies</h1>
         <ul>
-            {% for recipe in recipies %}
-                <li><a href="{{ recipe }}">{{ recipe }}</a></li>
+            {% for title, filename in recipies %}
+                <li><a href="{{ filename }}">{{ title }}</a></li>
             {% endfor %}
         </ul>
     </body>
@@ -65,6 +65,8 @@ tpl_recipie = jinja2.Template("""
         </style>
     </head>
     <body>
+        <nav><a href="index.html">← back</a></nav>
+        <h1>{{ title }}</h1>
         {{ svg|safe }}
 
         <script>
@@ -96,7 +98,7 @@ tpl_recipie = jinja2.Template("""
                         node.classList.remove('done');
                         node.classList.toggle('todo',
                             (dependencies[node.id] || []).every(d => done.has(d))
-                        
+
                          )
                     }
                 }
@@ -154,30 +156,38 @@ def render_recipe(filename, output):
     dependencies = {key: [r for l, r in lst] for key, lst in groupby(edges, key=lambda a: a[0])}
 
     with open(output, 'w') as fp:
-        fp.write(    
+        fp.write(
             tpl_recipie.render(
+                title=data['name'],
                 svg=p.stdout.decode('utf-8'),
                 dependencies=dependencies))
 
 
-def render_index(target, files):
+def render_index(target: Path, files: dict[Path, Path]):
+
+    def get_title(p: Path):
+        with p.open("r") as fp:
+            recipe = yaml.load(fp, Loader=yaml.Loader)
+            return recipe['name']
+
     with open(target, "w") as fp:
-        fp.write(tpl_index.render(recipies=files))
+        fp.write(tpl_index.render(recipies=sorted((get_title(s), t.name) for s, t in files.items())))
 
 
 if __name__ == '__main__':
+
     builddir = Path("build")
     builddir.mkdir(parents=True, exist_ok=True)
 
     shutil.copyfile("style.css", builddir / "style.css")
+    shutil.copyfile("style.css", builddir / "style.css")
+    shutil.copytree("src/assets", builddir / "assets", dirs_exist_ok=True)
 
     files = {source: builddir / source.with_suffix(".html").name
                 for source
                 in Path("recipies").glob("*.yml")}
 
-    render_index(
-        builddir / "index.html",
-        [Path(file).name for file in files.values()])
+    render_index(builddir / "index.html", files)
 
     for source, target in files.items():
         render_recipe(source, target)

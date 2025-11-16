@@ -1,0 +1,99 @@
+name: Ramen
+
+ingredients:
+
+  Wasser:
+  Hühnerkeule:
+
+  Zwiebel:
+  Sellerie:
+  möhre_brühe:
+    label: Möhren
+
+  Lorbeerblatt:
+  Pfefferkörner:
+
+  Huhnerbrust:
+
+  möhre_deko:
+    label: Möhren
+
+  Nudeln:
+  Shitake:
+
+  Frühlingszwiebel:
+
+  Sojasauce:
+  Reisessig:
+
+
+activities:
+  grob_würfeln:
+    label: grob würfeln
+
+  dünn_schneiden_möhren:
+    label: dünn schneiden
+
+  schneiden_shitake:
+    label: schneiden
+
+  dünn_schneiden_frühlingszwiebel:
+    label: dünn schneiden
+
+  sieben:
+
+  Brühe:
+  gekochte_hühnerkeule:
+    label: gekochte Hühnerkeule
+
+  debone:
+    label: Knochen entfernen
+
+  anbraten_1:
+    label: anbraten
+
+  anbraten_2:
+    label: anbraten
+
+  mischen_dressing:
+    label: mischen
+
+  ablöschen:
+
+  kochen_brühe:
+    label: kochen
+
+  kochen_final:
+    label: kochen
+
+  mischen:
+
+
+edges:
+  - [Zwiebel, grob_würfeln]
+  - [möhre_brühe, grob_würfeln]
+  - [Sellerie, grob_würfeln, anbraten_1]
+
+  - [Hühnerkeule, anbraten_1, kochen_brühe]
+
+  - [Wasser, kochen_brühe]
+  - [Lorbeerblatt, kochen_brühe]
+  - [Pfefferkörner, kochen_brühe]
+
+  - [kochen_brühe, sieben, Brühe, kochen_final]
+
+  - [sieben, gekochte_hühnerkeule, debone, kochen_final]
+
+
+  - [möhre_deko, dünn_schneiden_möhren, kochen_final]
+  - [Shitake, schneiden_shitake, kochen_final]
+
+  - [Frühlingszwiebel, dünn_schneiden_frühlingszwiebel, mischen]
+
+  - [Huhnerbrust, anbraten_2, ablöschen]
+
+  - [Sojasauce, mischen_dressing]
+  - [Reisessig, mischen_dressing, ablöschen, kochen_final]
+  - [Nudeln, kochen_final]
+
+  - [kochen_final, mischen]

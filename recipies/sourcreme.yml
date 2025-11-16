@@ -1,0 +1,27 @@
+name: Sourcremedip
+
+ingredients:
+  Schalotte:
+  Schmand:
+  Zitronensaft:
+  Salz:
+  Zucker:
+  Schnittlauch:
+
+activities:
+  hacken_zwiebel:
+    label: Fein hacken
+  schneiden:
+    label: schneiden
+  mischen_1:
+    label: mischen
+  mischen_2:
+    label: mischen
+
+edges:
+  - [Schalotte, hacken_zwiebel, mischen_1]
+  - [Schnittlauch, schneiden, mischen_1]
+  - [Salz, mischen_1]
+  - [Zucker, mischen_1]
+  - [Zitronensaft, mischen_1, mischen_2]
+  - [Schmand, mischen_2]
